@@ -6,6 +6,7 @@ RUN apt-get update \
     python3-scipy \
     python3-setuptools \
     python3-pip \
+    python-opencv \
     libpq-dev \
     libjpeg-dev \
     curl \
@@ -30,7 +31,8 @@ RUN ln -sf /usr/bin/pip3 /usr/local/bin/pip \
     && pip install -U pip
 
 # Install gym
-RUN pip install gym[all]
+RUN pip install gym[atari]
+RUN pip install gym==0.9.5
 
 # Get the faster VNC driver
 RUN pip install go-vncdriver>=0.4.0
